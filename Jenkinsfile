@@ -1,18 +1,25 @@
 pipeline {
     agent any
-    tools {
+//    tools {
 //        jdk 'jdk8'
 //        maven 'maven3'
-    }
+//    }
     stages {
         stage('package') {
             steps {
                 sh '''
-                mvn clean package"
-                echo 'packaging done .........................'
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                '''
+                sh '''
+                    mvn clean package"
+                    echo 'packaging done .........................'
                 '''
             }
             post {
+                success {
+                    echo 'success .........................'
+                }
                 always {
                     sh 
                     '''
