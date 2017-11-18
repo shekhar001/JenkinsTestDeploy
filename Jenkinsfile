@@ -7,8 +7,8 @@ pipeline {
     stages {
         stage('package') {
             steps {
-                    sh "echo 'PATH = /${PATH}'"
-                    sh "echo 'M2_HOME = /${M2_HOME}'"
+//                    sh "echo 'PATH = /${PATH}'"
+//                    sh "echo 'M2_HOME = /${M2_HOME}'"
 
                     sh "mvn clean package"
                     sh "echo 'packaging done .........................'"
