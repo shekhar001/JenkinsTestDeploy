@@ -7,14 +7,17 @@ pipeline {
     stages {
         stage('package') {
             steps {
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-                '''
-                sh '''
-                    mvn clean package"
-                    echo 'packaging done .........................'
-                '''
+                step{
+                    sh '''
+                        echo "PATH = ${PATH}"
+                        echo "M2_HOME = ${M2_HOME}"
+                    '''
+                    sh '''
+                        mvn clean package"
+                        echo 'packaging done .........................'
+                    '''
+                }
+                
             }
             post {
                 success {
