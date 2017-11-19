@@ -8,5 +8,19 @@ pipeline {
                 sh "echo 'done *******'"
             }
         }
+
+        stage('Build') {
+            steps {
+                sh 'mvn -B'
+		sh "echo 'done *******22'"
+            }
+        }
+
+        stage('run') {
+            steps {
+                sh "java -jar target/test.jar"
+		sh "echo 'done *******33'"
+            }
+        }
     }
 }
