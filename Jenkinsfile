@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'java --version'
+                sh 'javac -version'
 		sh 'mvn clean package'
                 sh "echo 'done *******'"
             }
