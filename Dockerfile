@@ -1,5 +1,6 @@
 FROM java:8-jre
 
+RUN mvn clean package
 ADD target/test.jar test.jar
 RUN echo "****************Hello Shekhar,I am from dockerfile******************"
 ENTRYPOINT ["java", "-jar", "/test.jar"]
