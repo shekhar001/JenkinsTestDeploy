@@ -11,7 +11,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean'
+                
 		sh "echo 'done *******22'"
             }
         }
