@@ -1,26 +1,16 @@
 pipeline {
-    agent { dockerfile true }
+    agent any
     stages {
-        stage('Test') {
+ 
+        stage('Build'){
             steps {
-                sh 'mvn -v'
-		sh 'mvn clean package'
-                sh "echo 'done *******'"
+                sh 'mvn clean package'
+ 
             }
         }
-
-        stage('Build') {
+        stage('Deploy') {
             steps {
-                
-		sh "echo 'done *******22'"
-            }
-        }
-
-        stage('run') {
-            steps {
-                // sh "java -jar target/test.jar"
-		sh "true env SERVER.PORT=8081 nohup java -jar ./target/test.jar &"
-		sh "echo 'done *******33'"
+                sh 'docker-compose -f docker-compose.yml up -d'
             }
         }
     }
