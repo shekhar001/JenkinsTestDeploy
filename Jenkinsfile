@@ -19,7 +19,7 @@ pipeline {
         stage('run') {
             steps {
                 // sh "java -jar target/test.jar"
-		sh "env SERVER.PORT=8081 nohup java -jar ./target/test.jar &"
+		sh "ps | grep test | awk '{print $1}' | xargs kill -9 || true env SERVER.PORT=8081 nohup java -jar ./target/test.jar &"
 		sh "echo 'done *******33'"
             }
         }
